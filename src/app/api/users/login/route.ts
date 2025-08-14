@@ -3,6 +3,7 @@ import {User} from "@/models/userModel"
 import { NextRequest,NextResponse } from "next/server"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
+connect()
 export async function POST(request:NextRequest){
    try {
     const reqBody=await request.json();
@@ -16,7 +17,7 @@ export async function POST(request:NextRequest){
         return NextResponse.json({errro:"Password is wrong"},{status:400})
     }
     const tokenData={
-        _id:user._id,
+        id:user._id,
         username:user.username,
         email:user.email
     }
